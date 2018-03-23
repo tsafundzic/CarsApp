@@ -17,7 +17,8 @@
             android:layout_centerHorizontal="true"
             android:paddingTop="20sp"
             android:text="@string/enter_your_email_and_password"
-            android:textSize="15dp" />
+            android:textSize="17sp"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/etInputEmail"
@@ -26,6 +27,7 @@
             android:layout_below="@+id/tvEnterYourEmailAndPassword"
             android:layout_margin="20sp"
             android:drawableLeft="@drawable/ic_email"
+            android:inputType="textEmailAddress"
             android:hint="@string/email" />
 
         <EditText
@@ -36,6 +38,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:drawableLeft="@drawable/ic_password"
+            android:inputType="textPassword"
             android:hint="@string/password" />
 
         <Button
