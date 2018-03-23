@@ -1,7 +1,9 @@
-package com.example.cobe.carapp;
+package com.example.cobe.carapp.ui.login;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.cobe.carapp.R;
 
 public class LoginActivity extends AppCompatActivity {
 
