@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.cobe.carapp.R;
 
@@ -50,8 +49,15 @@ public class CarsListFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        }
+    }
+
     private void setUI() {
         recyclerView = getView().findViewById(R.id.rlCarsList);
-
     }
 }

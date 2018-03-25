@@ -9,8 +9,8 @@
 
         <ImageView
             android:id="@+id/ivCarImage"
-            android:layout_width="120dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/image_width"
+            android:layout_height="@dimen/image_height"
             android:layout_margin="8sp"
             />
 
@@ -22,19 +22,11 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvCarAgeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvCarModel"
-            android:layout_toRightOf="@id/ivCarImage"
-            android:text="@string/car_age" />
-
-        <TextView
             android:id="@+id/tvCarAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvCarModel"
-            android:layout_toRightOf="@id/tvCarAgeText" />
+            android:layout_toRightOf="@id/ivCarImage" />
 
     </RelativeLayout>
 

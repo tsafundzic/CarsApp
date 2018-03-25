@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,9 +14,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:paddingTop="20sp"
+            android:paddingTop="@dimen/margin"
             android:text="@string/enter_your_email_and_password"
-            android:textSize="17sp"
+            android:textSize="@dimen/text_login"
             android:textStyle="bold"/>
 
         <EditText
@@ -25,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvEnterYourEmailAndPassword"
-            android:layout_margin="20sp"
+            android:layout_margin="@dimen/margin"
             android:drawableLeft="@drawable/ic_email"
             android:inputType="textEmailAddress"
             android:hint="@string/email" />
@@ -35,8 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/etInputEmail"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
             android:drawableLeft="@drawable/ic_password"
             android:inputType="textPassword"
             android:hint="@string/password" />
@@ -46,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/etInputPassword"
-            android:layout_margin="20sp"
+            android:layout_margin="@dimen/margin"
             android:textColor="@color/white"
             android:background="@color/colorPrimary"
             android:text="@string/login"/>

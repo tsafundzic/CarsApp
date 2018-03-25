@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">20dp</dimen>
+    <dimen name="text_big">20sp</dimen>
+    <dimen name="margin_car_details">5dp</dimen>
+    <dimen name="text_login">17sp</dimen>
+    <dimen name="image_width">120dp</dimen>
+    <dimen name="image_height">80dp</dimen>
+</resources>
