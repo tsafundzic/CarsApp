@@ -23,6 +23,7 @@ public class DataHolder {
 
     private static final List<Car> cars = CreateCars.createCars();
     private List<Car> carList = new ArrayList<>();
+    private List<String> carImages = new ArrayList<>();
 
     public List<Car> getCars() {
         return carList;
@@ -50,5 +51,14 @@ public class DataHolder {
     public void setAllCarsToList() {
         carList = new ArrayList<>();
         carList = cars;
+    }
+
+    public void setCarImages(Car car) {
+        carImages = new ArrayList<>();
+        carImages = car.getImages();
+    }
+
+    public List<String> getCarImagesURL() {
+        return carImages;
     }
 }

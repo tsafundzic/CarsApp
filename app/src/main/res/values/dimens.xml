@@ -6,4 +6,10 @@
     <dimen name="text_login">17sp</dimen>
     <dimen name="image_width">120dp</dimen>
     <dimen name="image_height">80dp</dimen>
+    <dimen name="image_big_height">200dp</dimen>
+    <dimen name="margin_car_list">8dp</dimen>
+    <dimen name="text_car_name_list">25dp</dimen>
+    <dimen name="divider">1px</dimen>
+    <dimen name="text_in_list">16sp</dimen>
+    <dimen name="car_name_margin_top">19dp</dimen>
 </resources>

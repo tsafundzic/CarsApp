@@ -37,6 +37,12 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
     public void onClick(View view) {
         Intent intent = new Intent(view.getContext(), CarDetailsActivity.class);
         intent.putExtra("ID", cars.get(getAdapterPosition()).getId());
+        setImagesURL(cars.get(getAdapterPosition()).getId());
         view.getContext().startActivity(intent);
+    }
+
+    public void setImagesURL(int id){
+        Car car = DataHolder.getInstance().returnCarBasedOnCarID(id);
+        DataHolder.getInstance().setCarImages(car);
     }
 }

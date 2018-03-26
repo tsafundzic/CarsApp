@@ -28,6 +28,7 @@ public class CarsActivity extends AppCompatActivity {
         setTitle(R.string.home);
 
         setUI();
+        checkCurrentPage();
         recieveUserEmail();
     }
 
@@ -52,7 +53,9 @@ public class CarsActivity extends AppCompatActivity {
         frameLayout = findViewById(R.id.frameLayout);
         tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+    }
 
+    private void checkCurrentPage() {
         if (viewPager.getCurrentItem() == 0) {
             DataHolder.getInstance().setFavoritesCarsToList();
         } else if (viewPager.getCurrentItem() == 1) {

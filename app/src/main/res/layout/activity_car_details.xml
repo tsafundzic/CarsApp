@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpImageViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_big_height" />
+
     <TextView
         android:id="@+id/tvCarName"
         android:layout_width="match_parent"
