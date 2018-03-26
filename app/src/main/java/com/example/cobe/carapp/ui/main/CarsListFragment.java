@@ -1,6 +1,5 @@
 package com.example.cobe.carapp.ui.main;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,14 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobe.carapp.R;
+import com.example.cobe.carapp.ui.details.CarDetailsActivity;
+import com.example.cobe.carapp.ui.listeners.OnCarClickListener;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CarsListFragment extends Fragment {
+public class CarsListFragment extends Fragment implements OnCarClickListener{
 
     RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
+    CarAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
 
     public CarsListFragment() {
@@ -37,7 +38,7 @@ public class CarsListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setUI();
+        setUI(view);
         setAdapter();
     }
 
@@ -46,6 +47,7 @@ public class CarsListFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         adapter = new CarAdapter();
+        adapter.setOnCarClickListener(this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -57,7 +59,12 @@ public class CarsListFragment extends Fragment {
         }
     }
 
-    private void setUI() {
-        recyclerView = getView().findViewById(R.id.rlCarsList);
+    private void setUI(View view) {
+        recyclerView = view.findViewById(R.id.rlCarsList);
+    }
+
+    @Override
+    public void onCarClick(int id) {
+        startActivity(CarDetailsActivity.getLauchIntent(getActivity(), id));
     }
 }

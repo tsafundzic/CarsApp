@@ -13,10 +13,11 @@ import com.example.cobe.carapp.ui.main.CarsActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String EMAIL = "EMAIL";
+
     EditText email;
     EditText password;
     Button login;
-    private static final String EMAIL = "EMAIL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

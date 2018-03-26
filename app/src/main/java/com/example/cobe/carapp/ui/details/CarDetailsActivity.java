@@ -1,46 +1,48 @@
 package com.example.cobe.carapp.ui.details;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobe.carapp.R;
 import com.example.cobe.carapp.common.data.DataHolder;
 import com.example.cobe.carapp.model.Car;
-import com.example.cobe.carapp.ui.main.ViewPagerAdapter;
 
-public class CarDetailsActivity extends AppCompatActivity {
+public class CarDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView carName;
     TextView carAge;
     TextView carSpeed;
     TextView carRegistration;
     ViewPager viewPager;
+    ImageView back;
     Car car;
+
+    public static Intent getLauchIntent(Context from, int id) {
+        Intent intent = new Intent(from, CarDetailsActivity.class);
+        intent.putExtra("ID", id);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_details);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle(R.string.car_details);
-
         setUI();
         recieveCarID();
         setText();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        finish();
-        return true;
-    }
 
     private void setUI() {
+        back = findViewById(R.id.ivBack);
+        back.setOnClickListener(this);
         carName = findViewById(R.id.tvCarName);
         carAge = findViewById(R.id.tvCarAge);
         carSpeed = findViewById(R.id.tvCarSpeed);
@@ -67,5 +69,9 @@ public class CarDetailsActivity extends AppCompatActivity {
         carRegistration.setText(String.format(getString(R.string.car_registration_format), car.getRegistration()));
     }
 
+    @Override
+    public void onClick(View view) {
+        onBackPressed();
+    }
 }
 

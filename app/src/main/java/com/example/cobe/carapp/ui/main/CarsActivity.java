@@ -5,52 +5,47 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobe.carapp.R;
 import com.example.cobe.carapp.common.data.DataHolder;
 
-public class CarsActivity extends AppCompatActivity {
+public class CarsActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView userEmail;
     ViewPager viewPager;
-    FrameLayout frameLayout;
     TabLayout tabLayout;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cars);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle(R.string.home);
-
         setUI();
         checkCurrentPage();
         recieveUserEmail();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        finish();
-        return true;
-    }
-
     private String recieveUserEmail() {
+        String email = null;
         Intent intent = getIntent();
-        String email = intent.getExtras().getString("EMAIL");
+        if (intent.getExtras() != null) {
+            email = intent.getExtras().getString("EMAIL");
+        }
         return email;
     }
 
     private void setUI() {
+        back = findViewById(R.id.ivBackToLogin);
+        back.setOnClickListener(this);
         userEmail = findViewById(R.id.tvUserEmail);
         userEmail.setText(recieveUserEmail());
 
         viewPager = findViewById(R.id.viewPager);
         setUpViewPager(viewPager);
-        frameLayout = findViewById(R.id.frameLayout);
         tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
@@ -87,8 +82,13 @@ public class CarsActivity extends AppCompatActivity {
 
     private void setUpViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new CarsListFragment(), getText(R.string.favorite).toString());
-        adapter.addFragment(new CarsListFragment(), getText(R.string.all).toString());
+        adapter.addFragment(new CarsListFragment(), getString(R.string.favorite));
+        adapter.addFragment(new CarsListFragment(), getString(R.string.all));
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onClick(View view) {
+        onBackPressed();
     }
 }

@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.example.cobe.carapp.R;
 import com.example.cobe.carapp.common.data.DataHolder;
 import com.example.cobe.carapp.model.Car;
+import com.example.cobe.carapp.ui.listeners.OnCarClickListener;
 
 import java.util.List;
 
@@ -18,18 +19,23 @@ import java.util.List;
  * Created by cobe on 23/03/2018.
  */
 
-public class CarAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class CarAdapter extends RecyclerView.Adapter<CarViewHolder> {
 
     private List<Car> cars = DataHolder.getInstance().getCars();
+    private OnCarClickListener onCarClickListener;
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cars_list_item, parent, false);
-        return new ViewHolder(view);
+    public void setOnCarClickListener(OnCarClickListener onCarClickListener) {
+        this.onCarClickListener = onCarClickListener;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public CarViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cars_list_item, parent, false);
+        return new CarViewHolder(view, onCarClickListener);
+    }
+
+    @Override
+    public void onBindViewHolder(CarViewHolder holder, int position) {
         Car car = cars.get(position);
         Context context = holder.itemView.getContext();
         Glide.with(context).load(car.getImages().get(0)).into(holder.imageView);
