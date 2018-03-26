@@ -17,7 +17,9 @@
         android:layout_marginLeft="@dimen/margin_car_list"
         android:layout_marginTop="@dimen/car_name_margin_top"
         android:layout_toRightOf="@id/ivCarImage"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/margin_car_list"
+        android:layout_toEndOf="@id/ivCarImage" />
 
     <TextView
         android:id="@+id/tvCarAge"
@@ -26,7 +28,8 @@
         android:layout_below="@id/tvCarModel"
         android:layout_margin="@dimen/margin_car_list"
         android:textSize="@dimen/text_in_list"
-        android:layout_toRightOf="@id/ivCarImage" />
+        android:layout_toRightOf="@id/ivCarImage"
+        android:layout_toEndOf="@id/ivCarImage" />
 
     <LinearLayout
         android:layout_width="match_parent"
