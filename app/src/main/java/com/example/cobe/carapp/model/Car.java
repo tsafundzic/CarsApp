@@ -38,47 +38,24 @@ public class Car {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public String getRegistration() {
         return registration;
-    }
-
-    public void setRegistration(String registration) {
-        this.registration = registration;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public int getSpeed() {
         return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
     }
 
     public List<String> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
-        this.images = images;
-    }
-
     public boolean isFavorite() {
         return isFavorite;
     }
 
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
-    }
 }
